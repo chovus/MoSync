@@ -1491,10 +1491,17 @@ interface MAAPI {
 	}
 
 	/**
-	* \brief A structure containing the sensor type and the data sent to the event.
+	* \brief A structure containing the sensor type and the sensor data sent to the event.
+	* The MASensor type identifies the sensor itself, e.g. accelerometer, gyroscope and so on.
+	* The MaSensor values array contains the data returned by a sensor, usually the x, y and z
+	* axis' values. They can be acceleration values (for accelerometer), radians per second
+	* (for gyroscope) and so on.
+	* NOTE: see \link #SENSOR_TYPE_ACCELEROMETER SENSOR_TYPE \endlink for the values returned by each of the sensors.
 	*/
 	struct MASensor {
+		/// The type of the sensor, one of the \link #SENSOR_TYPE_ACCELEROMETER SENSOR_TYPE \endlink constants.
 		int type;
+		/// the values returned by the sensor (what they represent depends on the sensor type in question)
 		float values[3];
 	}
 
@@ -7975,16 +7982,23 @@ group SensorAPI "Sensor API" {
 		group SensorTypes "Sensor Types" {
 		constset int SENSOR_TYPE_ {
 			// A constant describing an accelerometer sensor type.
+			// It has three associated values representing the acceleration data (in Gs) for the x, y and z axes.
 			ACCELEROMETER = 1;
 			// A constant describing a magnetic field sensor type.
+			// It has three associated values representing the geomagnetic data for the x, y and z axes.
 			MAGNETIC_FIELD = 2;
 			// A constant describing an orientation sensor type.
+			// It has one associated value describing the device's orientation, e.g. \link #UIDEVICE_ORIENTATION_UNKNOWN UIDEVICE_ORIENTATION \endlink
 			ORIENTATION = 3;
 			// A constant describing a gyroscope sensor type.
+			// it has three associated values representing the gyroscope data (in Gs) for the x, y and z axes of the device
 			GYROSCOPE = 4;
 			// A constant describing a proximity sensor type.
+			// It has one associated value informing how close an object is to the sensor, i.e. #SENSOR_PROXIMITY_VALUE_NEAR or
+			// #SENSOR_PROXIMITY_VALUE_FAR
 			PROXIMITY = 5;
 			// A constant describing a compass sensor type.
+			// It has one associated value, between 0 and 359, indicating the heading in deegres relative to the true north: 0 means the device is pointed toward true north, 90 means it is pointed due east, 180 means it is pointed due south, and so on.
 			COMPASS = 6;
 		}
 
