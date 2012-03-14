@@ -305,18 +305,21 @@ namespace NativeUI
      */
     int Widget::addChild(Widget* widget)
     {
-        // Add the widget object to the list of children.
-        mChildren.add(widget);
-
         // Add the widget handle as a child, this will add
         // the native widget as a child.
         int resultCode =
 			maWidgetAddChild(mWidgetHandle, widget->getWidgetHandle());
 
-        if ( resultCode < 0 )
+        if ( 0 > resultCode )
         {
 			setLastErrorCode(resultCode, "addChild");
         }
+		else
+		{
+			// No error so add the widget object to the list of children.
+			mChildren.add(widget);
+		}
+
         return resultCode;
     }
 
