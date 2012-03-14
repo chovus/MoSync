@@ -62,7 +62,7 @@ namespace NativeUI
 	 */
     void Layout::setScrollable(const bool isScrollable)
     {
-		setProperty("isScrollable", (isScrollable ? "true" : "false") );
+		setProperty(MAW_VERTICAL_LAYOUT_SCROLLABLE, (isScrollable ? "true" : "false") );
     }
 
 	/**
