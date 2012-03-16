@@ -165,7 +165,7 @@ namespace NativeUI
 
         /**
          * Set a widget float property.
-         * @param property A string representing which property to set.
+         * @param property A string representing which widget property to set.
          * @param value The float value which will be assigned to the property.
          * @return Any of the following result codes:
          * - #MAW_RES_OK if the property could be set.
@@ -180,7 +180,7 @@ namespace NativeUI
 
         /**
          * Get a widget property value as an integer, setting also the result code.
-         * @param property A string representing which property to set.
+         * @param property A string representing which widget property to get.
          * @param resultCode Will contain the result code of the syscall.
          *                   Can be any of the following result codes:
          *                   - #MAW_RES_OK.
@@ -200,7 +200,7 @@ namespace NativeUI
 
         /**
          * Get a widget property value as an integer.
-         * @param property A string representing which property to set.
+         * @param property A string representing which widget property to get.
          * @return The property value.
          */
         virtual int getPropertyInt(
@@ -208,7 +208,7 @@ namespace NativeUI
 
         /**
          * Get a widget property as a string, setting also the result code.
-         * @param property A string representing which property to set.
+         * @param property A string representing which widget property to get.
          * @param resultCode Will contain the result code of the syscall.
          *                   Can be any of the following result codes:
          *                   - #MAW_RES_OK no error occurred.
@@ -228,7 +228,7 @@ namespace NativeUI
 
         /**
          * Get a widget property as a string.
-         * @param property A string representing which property to set.
+         * @param property A string representing which property to get.
          * @return The property value.
          */
         virtual MAUtil::String getPropertyString(
