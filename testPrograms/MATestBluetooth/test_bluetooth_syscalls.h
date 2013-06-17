@@ -18,10 +18,20 @@ class TestBluetoothSyscalls:
 public:
 	TestBluetoothSyscalls(const MAUtil::String& name);
 
+	/*
+	 * sysc all: int maBTStart() - asynchronous
+	 * get a handler to the BT device (if exists) and enable the BT
+	 * return:   0 if the device doesn't have a BT and >0 for success (the handler)
+	 * callback: void onBTStarted(int err_code)
+	 */
 	void test_maBtStart_devicepresent();
 
 private:
-	// call-backs for the BT asynchronous events
+	/*
+	 * call-back for maBTStart()
+	 *
+	 * err_code: MA_BT_{OK, NOT_FOUND, NOT_ENABLED}
+	 */
 	void onBTStarted(int err_code);
 
 private:
