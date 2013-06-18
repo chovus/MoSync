@@ -11,7 +11,11 @@ TestBluetoothSyscalls::TestBluetoothSyscalls(const MAUtil::String& name):
 
 TestBluetoothSyscalls::start()
 {
-	test_maBtStart_devicepresent();
+#if 0
+	test_maBTStart_nodevice();
+#endif
+	test_maBTStart_devicepresent();
+	test_maBTGetPairedDevices_success();
 }
 
 /************************************************************************************************
@@ -20,7 +24,7 @@ TestBluetoothSyscalls::start()
  *
  *************************************************************************************************/
 
-void TestBluetoothSyscalls::test_maBtStart_devicepresent()
+void TestBluetoothSyscalls::test_maBTStart_devicepresent()
 {
 	int res = maBTStart();
 
@@ -28,11 +32,19 @@ void TestBluetoothSyscalls::test_maBtStart_devicepresent()
 	expect("DevicePresentAndEnabled");
 }
 
-void TestBluetoothSyscalls::test_maBtStart_nodevice()
+void TestBluetoothSyscalls::test_maBTStart_nodevice()
 {
 	int res = maBTStart();
 
-	asser("NoDevice", res == 0);
+	assert("NoDevice", res == 0);
+}
+
+void TestBluetoothSyscalls::test_maBTGetPairedDevices_success()
+{
+	int res = maBTGetPairedDevices();
+
+	assert("PairedDevices", res > 0);
+	assert("NoPairedDevices", res == 0);
 }
 
 /************************************************************************************************
