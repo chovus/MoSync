@@ -32,9 +32,54 @@ public:
 
 	/*
 	 * int maBtGetPairedDevices()
-	 * 			Android keeps internally such list
+	 *
 	 */
 	void test_maBtGetPairedDevices_success();
+
+	/*
+	 * int maBTGetState()
+	 */
+
+	/*
+	 * int maBTStartScanning()
+	 */
+
+	/*
+	 * int maBTStopScanning()
+	 */
+
+	/*
+	 * int maBTConnect(in int server)  SERVER
+	 */
+
+	/*
+	 * int maBTDisconnect(in int server)	SERVER
+	 */
+
+	/*
+	 * int maBTReadCharacteristic(out int characteristic) SERVER
+	 */
+
+	/*
+	 * int maBTWriteCharacteristic(in int characteristic)	SERVER
+	 */
+
+	/*
+	 * int maBTAddService(in int service)	CLIENT
+	 */
+
+	/*
+	 * int maBTRemoveService(in int service)	CLIENT
+	 */
+
+	/*
+	 * int maBTStartAdvertising()	CLIENT
+	 */
+
+	/*
+	 * int maBTStoptAdvertising()	CLIENT
+	 */
+
 
 	/*
 	 * int maBtStartDeviceDiscovery(in int names) - old syscall
