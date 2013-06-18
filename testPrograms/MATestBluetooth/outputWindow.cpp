@@ -12,6 +12,8 @@
 #include <NativeUI/Label.h>
 #include <NativeUI/VerticalLayout.h>
 
+#include "TestRunner.h"
+
 #include "outputWindow.h"
 
 OutputWindow::OutputWindow()
@@ -70,6 +72,9 @@ void OutputWindow::buttonClicked(NativeUI::Widget* button)
 {
 	mButton->setEnabled(false);
 	mMessage->setText("tests are running...");
+
+	TestRunner::getInstance()->addTestListener(new SimpleTestListener());
+	TestRunner::getInstance()->runNextTestCase();
 }
 
 

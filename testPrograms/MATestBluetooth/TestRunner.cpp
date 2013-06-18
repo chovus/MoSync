@@ -73,6 +73,7 @@ void SimpleTestListener::beginTestSuite(
 	const MAUtil::String& suiteName)
 {
 	printf("Started running tests\n");
+	displayMessage("Started running tests\n");
 }
 
 void SimpleTestListener::endTestSuite()

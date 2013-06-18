@@ -60,6 +60,8 @@ public:
 	virtual void assertion(const MAUtil::String& assertionName, bool cond);
 	void expect(const MAUtil::String& assertionName);
 
+	virtual void displayMessage(MAUtil::String msg) = 0;
+
 protected:
 	// Instance variables.
 	int mPassedTests;

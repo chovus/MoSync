@@ -9,15 +9,37 @@ TestBluetoothSyscalls::TestBluetoothSyscalls(const MAUtil::String& name):
 }
 
 
-void TestBluetoothSyscalls::test_maBtStart_devicepresent()
+TestBluetoothSyscalls::start()
 {
-	// make sure that the device has BT
-	int res = maBTStart();
-
-	expect("DevicePresentAndEnabled");
-	assert("DevicePresentAndEnabled", res > 0); // device present
+	test_maBtStart_devicepresent();
 }
 
+/************************************************************************************************
+ *
+ * the BT test cases
+ *
+ *************************************************************************************************/
+
+void TestBluetoothSyscalls::test_maBtStart_devicepresent()
+{
+	int res = maBTStart();
+
+	assert("DevicePresent", res > 0);
+	expect("DevicePresentAndEnabled");
+}
+
+void TestBluetoothSyscalls::test_maBtStart_nodevice()
+{
+	int res = maBTStart();
+
+	asser("NoDevice", res == 0);
+}
+
+/************************************************************************************************
+ *
+ * Call-backs for the BT's asynchronous events
+ *
+ *************************************************************************************************/
 
 void TestBluetoothSyscalls::onBTStarted(int err_code)
 {
@@ -26,5 +48,6 @@ void TestBluetoothSyscalls::onBTStarted(int err_code)
 }
 
 
-TESTCASE(TestDownloader)
+
+TESTCASE(TestBluetoothSyscalls)
 

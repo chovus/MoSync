@@ -18,13 +18,17 @@ class TestBluetoothSyscalls:
 public:
 	TestBluetoothSyscalls(const MAUtil::String& name);
 
+	// pure virtual from TestCase
+	void start();
+
 	/*
-	 * sysc all: int maBTStart() - asynchronous
-	 * get a handler to the BT device (if exists) and enable the BT
+	 * syscall:  int maBTStart() - asynchronous
+	 * 			 get a handler to the BT device (if exists) and enable the BT
 	 * return:   0 if the device doesn't have a BT and >0 for success (the handler)
 	 * callback: void onBTStarted(int err_code)
 	 */
 	void test_maBtStart_devicepresent();
+	void test_maBtStart_nodevice();
 
 private:
 	/*
